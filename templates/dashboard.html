@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+    <h1>Dashboard</h1>
+    <p>Welcome, {{ session.get('username') }}!</p>
+
+    <h2>Start Analysis</h2>
+    <form method="POST" action="{{ url_for('analyze') }}">
+        <div class="mb-3">
+            <label for="num_rows" class="form-label">Number of Rows</label>
+            <input type="number" class="form-control" id="num_rows" name="num_rows" value="1000" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Analyze</button>
+    </form>
+{% endblock %}
